@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime
 import requests
 from io import StringIO
+import argparse
+
 
 def pull_schedule(file_id):
     '''Downloads the group schedule from google drive and saves it as a file'''
@@ -19,9 +21,10 @@ def parse_tsv(pulled_schedule):
 
     return(next_session)
 
+
 def send_message(msg_string, webhook_url):
     '''Sends out the notification using a Slack webhook'''
-    returned = requests.post(webhook_url ,data={'text':msg_string})    
+    returned = requests.post(webhook_url ,json={'text':msg_string})    
 
 
 def create_message(next_session):
@@ -44,10 +47,27 @@ def create_message(next_session):
 
     full_message = message + options_list.replace(",","") 
 
-    print(full_message)
+    return(full_message)
 
 
-schedule = pull_schedule("11iBubDlDrAGGvd3FkuSlBQxRvhoF4__BD32fS4AwsVE")
-next_session = parse_tsv(schedule)
-create_message(next_session)
+def main():
+
+    parser = argparse.ArgumentParser(description='Parses a Google Sheets file containing a meeting schedule')
+    parser.add_argument('--webhook_url', type=str, help='Webhook URL from Slack')
+    parser.add_argument('--drive_file_id',type=str, help='File ID on Google Drive')
+    args = parser.parse_args()
+
+    print("Webhook URL:" + args.webhook_url)
+    print("Google Drive file ID:" + args.drive_file_id)
+
+    schedule = pull_schedule(args.drive_file_id)
+    next_session = parse_tsv(schedule)
+    msg = create_message(next_session)
+    send_message(msg, args.webhook_url)
+    print(msg)
+
+
+if __name__ == "__main__":
+    main()
+
 
