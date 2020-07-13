@@ -15,5 +15,5 @@ install:
 
 # Run the unit test
 script:
-  - python tests.py
+  - python tests/tests.py
 
