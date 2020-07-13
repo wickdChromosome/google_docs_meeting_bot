@@ -20,7 +20,7 @@ For an example input schedule, see an __Example schedule:__ https://docs.google.
 
 Lets take something like this as an example:
 ```
-python3 src/main.py --webhook_url $WEBHOOK_URL --drive_file_id $FILE_ID --speaker_col 1 --presentation_col 2
+python3 src/meeting_poll.py --webhook_url $WEBHOOK_URL --drive_file_id $FILE_ID --speaker_col 1 --presentation_col 2
 ```
 - __webhook_url__ contains a webhook URL from Slack which you can get by creating a Slack app and adding a webhook for the channel you want to send the notifications to
 - __drive_file_id__ is the ID of the file on google drive which you want to parse. As an example, in the url *https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0*, *1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ* is the file ID.

@@ -3,7 +3,7 @@ import sys
 #for travis
 sys.path.insert(1, 'src')
 
-import main
+import meeting_poll
 import unittest
 from io import StringIO
 import pandas as pd
@@ -22,7 +22,7 @@ class TestNotificationBot(unittest.TestCase):
     testfile_id = "1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ"
     def test_pull(self):
 
-        returned_string = main.pull_schedule(self.testfile_id)
+        returned_string = meeting_poll.pull_schedule(self.testfile_id)
         original_string = read2str("tests/test_pull.txt")
         collist_ret = pd.read_csv(StringIO(returned_string),sep='\t',comment="#").columns.tolist()
         collist_orig = pd.read_csv(StringIO(original_string),sep='\t',comment="#").columns.tolist()
@@ -32,13 +32,13 @@ class TestNotificationBot(unittest.TestCase):
 
     def test_parser(self):
 
-        parsed_results = main.parse_tsv(read2str("tests/test_pull.txt"), speaker_col=2, topics_col=3)
+        parsed_results = meeting_poll.parse_tsv(read2str("tests/test_pull.txt"), speaker_col=2, topics_col=3)
         self.assertEqual( parsed_results[0], "testspeaker4")
 
 
     def test_message(self):
         
-        self.assertEqual(main.create_message(["testspeaker4", ["option10","option11","option12"]]) ,read2str("tests/test_message.txt"))
+        self.assertEqual(meeting_poll.create_message(["testspeaker4", ["option10","option11","option12"]]) ,read2str("tests/test_message.txt"))
 
 
 
