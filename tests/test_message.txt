@@ -1,5 +1,5 @@
 `This week's speaker is: testspeaker4!`
-*What should this week's journal club presentation be about? Available topics are:*
+*What should this week's journal club presentation be about?*
 
 :grapes: *-> option10*
 :melon: *-> option11*
