@@ -15,7 +15,7 @@ This is an example bot to show parsing a schedule (such as a schedule for group 
 This script uses a public google sheets schedule, where it is assumed that the first column in the document is the meeting date. First, you will need the ID of the google sheet you want to parse, and comment out
 all unnecessary lines (that are not part of the schedule table) with a "#".
 
-For an example input schedule, see an ![Example schedule](https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0)
+For an example input schedule, see an __Example schedule:__ https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0
 
 
 Lets take something like this as an example:
