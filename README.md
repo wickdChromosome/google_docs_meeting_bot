@@ -10,6 +10,14 @@
 
 This is an example bot to show parsing a schedule (such as a schedule for group meetings), and using a webhook to send out a notification and a poll for the next meeting date in the schedule from today.
 
+## Dependencies
+
+You can install all dependencies by doing:
+
+```
+pip3 install -r requirements.txt
+```
+
 ## Usage
 
 This script uses a public google sheets schedule, where it is assumed that the first column in the document is the meeting date. First, you will need the ID of the google sheet you want to parse, and comment out
