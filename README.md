@@ -31,7 +31,7 @@ python3 src/main.py --webhook_url $WEBHOOK_URL --drive_file_id $FILE_ID --speake
 
 If you wanted to send out a poll every week, you could copy the python script to __/usr/local/bin/__:
 ```
-sudo cp src/meeting_poll.py /usr/local/bin/
+sudo cp src/meeting_poll.py /usr/local/bin/ && sudo chmod +x /usr/local/bin/meeting_poll.py
 ```
 
 Then, you could add the following to your __etc/anacrontab__(assuming you are using anacron):
