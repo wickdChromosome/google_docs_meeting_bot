@@ -1,0 +1,6 @@
+`This week's speaker is: testspeaker4!`
+*What should this week's journal club presentation be about? Available topics are:*
+
+:grapes: *-> option10*
+:melon: *-> option11*
+:watermelon: *-> option12*
