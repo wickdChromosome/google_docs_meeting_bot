@@ -29,6 +29,16 @@ python3 src/main.py --webhook_url $WEBHOOK_URL --drive_file_id $FILE_ID --speake
 
 ### Using cron jobs
 
+If you wanted to send out a poll every week, you could copy the python script to __/usr/local/bin/__:
+```
+sudo cp src/meeting_poll.py /usr/local/bin/
+```
 
+Then, you could add the following to your _etc/anacrontab__(assuming you are using anacron):
+```
+7       10      meeting_poll    meeting_poll.py --webhook_url $WEBHOOK_URL...
+```
+
+This will parse the meeting doc every week, and send out the polls/notifications to Slack.
 
 

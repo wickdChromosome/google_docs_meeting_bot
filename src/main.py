@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 from datetime import datetime
 import requests
@@ -57,10 +59,10 @@ def create_message(next_session):
 def main():
 
     parser = argparse.ArgumentParser(description='Parses a Google Sheets file containing a meeting schedule')
-    parser.add_argument('--webhook_url', type=str, help='Webhook URL from Slack')
-    parser.add_argument('--drive_file_id', type=str, help='File ID on Google Drive')
-    parser.add_argument('--speaker_col', type=str, help='Zero based index for the column containing the speaker names in the dataset')
-    parser.add_argument('--presentation_col', type=str, help='Zero based index for the column containing the presentation options in the dataset')
+    parser.add_argument('--webhook_url', required=True, type=str, help='Webhook URL from Slack')
+    parser.add_argument('--drive_file_id', required=True, type=str, help='File ID on Google Drive')
+    parser.add_argument('--speaker_col', required=True, type=str, help='Zero based index for the column containing the speaker names in the dataset')
+    parser.add_argument('--presentation_col', required=True, type=str, help='Zero based index for the column containing the presentation options in the dataset')
     args = parser.parse_args()
 
     print("Webhook URL:" + args.webhook_url)
