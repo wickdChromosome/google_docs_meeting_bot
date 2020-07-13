@@ -61,7 +61,7 @@ def create_message(next_session):
     #if there are no options, send a different message
     if num_options == 0:
 
-        full_message = message1 + "\n*Looks like there are no offered talks this week.*\n"
+        full_message = message1 + "\n*Looks like there are no offered journal club talks this week.*\n"
         return(full_message)
 
     for i in range(len(options)):
