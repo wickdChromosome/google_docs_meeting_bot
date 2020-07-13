@@ -1,3 +1,8 @@
+import sys
+
+#for travis
+sys.path.insert(1, 'src')
+
 import main
 import unittest
 from io import StringIO
@@ -18,7 +23,7 @@ class TestNotificationBot(unittest.TestCase):
     def test_pull(self):
 
         returned_string = main.pull_schedule(self.testfile_id)
-        original_string = read2str("test_pull.txt")
+        original_string = read2str("tests/test_pull.txt")
         collist_ret = pd.read_csv(StringIO(returned_string),sep='\t',comment="#").columns.tolist()
         collist_orig = pd.read_csv(StringIO(original_string),sep='\t',comment="#").columns.tolist()
 
@@ -27,13 +32,13 @@ class TestNotificationBot(unittest.TestCase):
 
     def test_parser(self):
 
-        parsed_results = main.parse_tsv(read2str("test_pull.txt"), speaker_col=2, topics_col=3)
+        parsed_results = main.parse_tsv(read2str("tests/test_pull.txt"), speaker_col=2, topics_col=3)
         self.assertEqual( parsed_results[0], "testspeaker4")
 
 
     def test_message(self):
         
-        self.assertEqual(main.create_message(["testspeaker4", ["option10","option11","option12"]]) ,read2str("test_message.txt"))
+        self.assertEqual(main.create_message(["testspeaker4", ["option10","option11","option12"]]) ,read2str("tests/test_message.txt"))
 
 
 
