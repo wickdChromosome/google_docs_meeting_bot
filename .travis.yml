@@ -11,6 +11,7 @@ python: 3.6
 install:
   - pip install pandas
   - pip install argparse
+  - pip install requests
 
 # Run the unit test
 script:
