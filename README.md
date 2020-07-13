@@ -15,15 +15,14 @@ This is an example bot to show parsing a schedule (such as a schedule for group 
 This script uses a public google sheets schedule, where it is assumed that the first column in the document is the meeting date. First, you will need the ID of the google sheet you want to parse, and comment out
 all unnecessary lines (that are not part of the schedule table) with a "#".
 
-For an example input schedule, see ![Example schedule](https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0)
+For an example input schedule, see an ![Example schedule](https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0)
 
 
 Lets take something like this as an example:
 ```
 python3 src/main.py --webhook_url $WEBHOOK_URL --drive_file_id $FILE_ID --speaker_col 1 --presentation_col 2
-
 ```
-- webhook_url contains a webhook URL from Slack which you can get by creating a Slack app and adding a webhook for the channel you want to send the notifications to
+- __webhook_url__ contains a webhook URL from Slack which you can get by creating a Slack app and adding a webhook for the channel you want to send the notifications to
 - drive_file_id is the ID of the file on google drive which you want to parse. As an example, in the url *https://docs.google.com/spreadsheets/d/1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ/edit#gid=0*, *1mmlQc6fOPfE044YtShJUIPTz6bODJwHo_rWXdBmqHLQ* is the file ID.
 - speaker_col is the index(zero based) of the column where the name of the speaker is for each date.
 - presentation_col is the index(zero based) of the column where a comma separated list of presentations can be found.
