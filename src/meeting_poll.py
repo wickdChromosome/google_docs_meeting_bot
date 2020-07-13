@@ -24,7 +24,7 @@ def parse_tsv(pulled_schedule_str, speaker_col, topics_col):
 
     speaker = next_session[next_session.columns[speaker_col]].tolist()[0]
     options = next_session[next_session.columns[topics_col]].tolist()[0].split(",")
-    
+
     return([speaker, options])
 
 
@@ -44,6 +44,18 @@ def create_message(next_session):
 
     options_list = []
 
+    num_options = len(options)
+    #if there is only a single option, don't make a poll
+    if num_options == 1:
+
+        full_message = message + "Looks like there is only one offered talk this week: *" + options[0] + "*\n"
+        return(full_message)
+
+    #if there are no options, send a different message
+    if num_options == 0:
+
+        full_message = message + "Looks like there are no offered talks this week.\n"
+        return(full_message)
 
     for i in range(len(options)):
 
