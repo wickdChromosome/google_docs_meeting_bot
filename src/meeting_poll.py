@@ -150,13 +150,13 @@ def create_message(next_session, group_map):
 
 
     #now the last remaining pair
-    if 'Pejman' in unpicked_people_list:
-        unpicked_people_list.remove("Pejman")
-        message += "`" + unpicked_people_list[0] + "` will show their code to `Pejman`\n"
-
-    else:
-        message += "`" + unpicked_people_list[0] + "` will show their code to `" + unpicked_people_list[1] + '`\n'
-
+#    if 'Pejman' in unpicked_people_list:
+#        unpicked_people_list.remove("Pejman")
+#        message += "`" + unpicked_people_list[0] + "` will show their code to `Pejman`\n"
+#
+#    else:
+#        message += "`" + unpicked_people_list[0] + "` will show their code to `" + unpicked_people_list[1] + '`\n'
+#
 
     message += '\n\n*The default time for code review sessions is Wednesday 2-3PM.*'
 
@@ -179,7 +179,6 @@ def main():
     next_session = parse_tsv(schedule, speaker_col=args.speaker_col, journal_col=args.journalclub_col)
     msg = create_message(next_session, group_map={'Bence' : ['Python','R']
                                                 , 'Dan' : ['Python','R']
-                                                , 'Pejman' : ['Python','R']
                                                 , 'Marcela' : ['Python', 'R']
                                                 , 'Nava' : ['Python', 'R']
                                                 , 'Adam' : ['Python']
